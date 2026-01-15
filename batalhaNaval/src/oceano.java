@@ -1,5 +1,41 @@
+import java.util.Scanner;
+
 public class oceano {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        /*
+         * O Segredo: O "Game Loop" (O Ciclo do Jogo)
+         * Diferente dos exercícios de aula que começam e terminam, um jogo funciona em
+         * um laço (loop). Ele fica rodando até que alguém vença.
+         * 
+         * Vamos montar o Passo 1: Criar e Ver o Tabuleiro.
+         */
+        // 1. Criei o tabuleiro
+        char[][] tabuleiro = new char[5][5];
+        // 2. Vou cobrir ele de "água" onde os navios ficam (~)
+
+        /*
+         * O loop entra primeiramente na linha, mas sua linha seguinte tem outro loop,
+         * por isso apenas ao terminar de percorrer todas as colunas ele pula para a
+         * próxima linha. O inverso também pode ser feito.
+         */
+        for (int linha = 0; linha < 5; linha++) {
+            for (int coluna = 0; coluna < 5; coluna++) {
+                tabuleiro[linha][coluna] = '~';
+            }
+        }
+
+        // 3. Exibição do tabuleiro na tela
+        System.out.println("--- Batalha Naval ---");
+        exibirTabuleiro(tabuleiro);
+    }
+
+    public static void exibirTabuleiro(char[][] mapa) {
+        //Aqui é onde foi "contruído" a ordem de exibir o tabuleiro
+        for (int linha = 0; linha < 5; linha++) {
+            for (int coluna = 0; coluna < 5; coluna++) {
+                System.out.print(mapa[linha][coluna] + " ");
+            }
+            System.out.println(); // Um sout extra executado "vazio" para pular uma linha após imprimir 5 colunas
+        }
     }
 }
