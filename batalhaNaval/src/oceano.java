@@ -36,11 +36,15 @@ public class oceano {
 
         exibirTabuleiro(tabuleiro);
 
-        boolean trava = true;
-        while (trava) {
-            // Jogo rodando
-        }
+        /*
+         * boolean trava = true;
+         * while (trava) {
+         * // Jogo rodando
+         * }
+         */
         criandoNavio(navio);
+        exibirTabuleiro(tabuleiro);
+
         // ========================================================================
     }
 
@@ -65,28 +69,20 @@ public class oceano {
         int navioc3 = 0;
 
         naviol1 = gerador.nextInt(5);
-        System.out.println(naviol1);
-
         navioc1 = gerador.nextInt(5);
-        System.out.println(navioc1);
-
         naviol2 = gerador.nextInt(5);
-        System.out.println(naviol2);
-
         navioc2 = gerador.nextInt(5);
-        System.out.println(navioc2);
-
         naviol3 = gerador.nextInt(5);
-        System.out.println(naviol3);
-
         navioc3 = gerador.nextInt(5);
-        System.out.println(navioc3);
 
         // Mapa Recebendo os Navios
 
-        tabuleiro[naviol1][navioc1] = '⛴';
-        tabuleiro[naviol2][navioc2] = '⛴';
-        tabuleiro[naviol3][navioc3] = '⛴';
+        tabuleiro[naviol1][navioc1] = '#';
+        System.out.println("Navio 1 - " + tabuleiro[naviol1][navioc1]);
+        tabuleiro[naviol2][navioc2] = '#';
+        System.out.println("Navio 2 - " + tabuleiro[naviol2][navioc2]);
+        tabuleiro[naviol3][navioc3] = '#';
+        System.out.println("Navio 3 - " + tabuleiro[naviol3][navioc3]);
 
         /*
          * for (int linha = 0; linha < 5; linha++) {
