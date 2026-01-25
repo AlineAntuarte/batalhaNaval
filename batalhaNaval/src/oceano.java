@@ -35,6 +35,11 @@ public class oceano {
         System.out.println("--- Batalha Naval ---");
 
         exibirTabuleiro(tabuleiro);
+
+        boolean trava = true;
+        while (trava) {
+            // Jogo rodando
+        }
         criandoNavio(navio);
         // ========================================================================
     }
