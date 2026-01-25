@@ -85,6 +85,8 @@ public class oceano {
         // Mapa Recebendo os Navios
 
         tabuleiro[naviol1][navioc1] = '⛴';
+        tabuleiro[naviol2][navioc2] = '⛴';
+        tabuleiro[naviol3][navioc3] = '⛴';
 
         /*
          * for (int linha = 0; linha < 5; linha++) {
