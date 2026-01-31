@@ -16,6 +16,7 @@ public class oceano {
     static Scanner user = new Scanner(System.in);
     static int linhaPlayer = 0;
     static int colunaPlayer = 0;
+    //static int passarVez = 1;
 
     public static void main(String[] args) throws Exception {
 
@@ -83,20 +84,29 @@ public class oceano {
              */
 
             if (tabuleiro[linhaPlayer][colunaPlayer] == '~') {// Se tiver água
+                tabuleiro[linhaPlayer][colunaPlayer] = 'X'; // Modifica para mostrar que já atirou la
                 System.out.println("O Comandante " + player + " acertou o mar!");
+                //passarVez++;
+                exibirTabuleiro(tabuleiro);
                 System.out.println(); // Um sout extra executado "vazio" para pular uma linha
+
             } else if (tabuleiro[linhaPlayer][colunaPlayer] == '#') {// Se tiver um navio
+                tabuleiro[linhaPlayer][colunaPlayer] = '*'; // Modifica para mostrar que já abateu la
                 System.out.println("Comandante " + player + ", acertamos o inimigo!");
+                exibirTabuleiro(tabuleiro);
                 System.out.println(); // Um sout extra executado "vazio" para pular uma linha
 
                 /*
                  * Até aqui só novidade, agora teremos navios abatidos ou mar que já levou tiro
                  */
-            } else if (tabuleiro[linhaPlayer][colunaPlayer] == 'X') {// Se já recebeu um tiro
-                System.out.println();
+
+            } else if (tabuleiro[linhaPlayer][colunaPlayer] == 'X') {// Se já recebeu um tiro em água
+                System.out.println("Nestas coordenadas não há navios inimigos Comandante!");
+                exibirTabuleiro(tabuleiro);
                 System.out.println(); // Um sout extra executado "vazio" para pular uma linha
             } else { // Se achar navio abatido
                 System.out.println("Já abatemos este navio Comandante!");
+                exibirTabuleiro(tabuleiro);
                 System.out.println(); // Um sout extra executado "vazio" para pular uma linha
             }
 
