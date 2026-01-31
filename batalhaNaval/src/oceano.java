@@ -48,11 +48,30 @@ public class oceano {
         boolean trava = true; // Futuramente algo deve retornar false para o jogo terminar
         while (trava) {
             // Jogo rodando
-            System.out.println("Jogador " + player + " deve informar...");
-            System.out.print("Linha: ");
+            System.out.println("Jogador " + player + " deve informar de 0 a 4...");
+            System.out.print("a Linha: ");
             linhaPlayer = user.nextInt();
-            System.out.print("Coluna: ");
+            System.out.print("e a Coluna: ");
             colunaPlayer = user.nextInt();
+
+            /*
+             * --> legenda <--
+             * mar ~~~~~~~~
+             * navio #######
+             * explosão nula XXXXXXX
+             * navio encontrado ******
+             */
+
+            if (tabuleiro[linhaPlayer][colunaPlayer] == '~') {// Se tiver água
+                System.out.println();
+            } else if (tabuleiro[linhaPlayer][colunaPlayer] == '#') {// Se tiver um navio
+                System.out.println();
+            } else if (tabuleiro[linhaPlayer][colunaPlayer] == 'X') {// Se já recebeu um tiro
+                System.out.println();
+            } else {
+                // Achamos um navio novo
+                // EXPLODIR
+            }
 
             // Jogo encerrando
         }
