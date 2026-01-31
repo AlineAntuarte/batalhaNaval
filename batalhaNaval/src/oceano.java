@@ -12,6 +12,10 @@ public class oceano {
     // 1. Criei o tabuleiro fora do Main e dentro da classe, para pertencer a
     // "todos"
     static char[][] tabuleiro = new char[5][5];
+    static String player = "Marinheiro(a)";
+    static Scanner user = new Scanner(System.in);
+    static int linhaPlayer = 0;
+    static int colunaPlayer = 0;
 
     public static void main(String[] args) throws Exception {
 
@@ -33,17 +37,32 @@ public class oceano {
 
         // 3. Exibição do tabuleiro na tela
         System.out.println("--- Batalha Naval ---");
+        System.out.println("Como quer ser chamado? ");
+        player = user.nextLine();
+
+        System.out.println("Olá Comandante " + player + "! É um prazer velejar com você.");
+        System.out.println("Vamos começar!");
 
         exibirTabuleiro(tabuleiro);
 
-        /*
-         * boolean trava = true;
-         * while (trava) {
-         * // Jogo rodando
-         * }
-         */
+        boolean trava = true; // Futuramente algo deve retornar false para o jogo terminar
+        while (trava) {
+            // Jogo rodando
+            System.out.println("Jogador " + player + " deve informar...");
+            System.out.print("Linha: ");
+            linhaPlayer = user.nextInt();
+            System.out.print("Coluna: ");
+            colunaPlayer = user.nextInt();
+
+            // Jogo encerrando
+        }
+        if (trava == false) { // Quando o jogo acaba ele retorna quem venceu
+            System.out.println("--- Vitória :) ---");
+            System.out.println("--- Derrota :( ---");
+
+        }
+
         criandoNavio(navio);
-        exibirTabuleiro(tabuleiro);
 
         // ========================================================================
     }
@@ -78,11 +97,8 @@ public class oceano {
         // Mapa Recebendo os Navios
 
         tabuleiro[naviol1][navioc1] = '#';
-        System.out.println("Navio 1 - " + tabuleiro[naviol1][navioc1]);
         tabuleiro[naviol2][navioc2] = '#';
-        System.out.println("Navio 2 - " + tabuleiro[naviol2][navioc2]);
         tabuleiro[naviol3][navioc3] = '#';
-        System.out.println("Navio 3 - " + tabuleiro[naviol3][navioc3]);
 
         /*
          * for (int linha = 0; linha < 5; linha++) {
