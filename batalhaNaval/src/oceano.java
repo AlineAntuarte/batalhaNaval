@@ -47,6 +47,26 @@ public class oceano {
         criandoNavio(navio);
         boolean trava = true; // Futuramente algo deve retornar false para o jogo terminar
         while (trava) {
+            int cont = 0; /*
+                           * Contador para encerrar o jogo, pois todos os navios foram abatidos. ALém
+                           * disso ele é zerado dentro do loop 'While' pois uma nova contagem é feita a
+                           * cada rodada, para evitar que ele conte o mesmo navio e acumule.
+                           * O jogo só encerra quando o loop achar 3 navios abatidos de uma vez.
+                           */
+
+            if (cont == 3) { // Condição de requisito para travar o jogo
+                trava = false;
+
+                for (int linha = 0; linha < 5; linha++) {
+                    for (int coluna = 0; coluna < 5; coluna++) {
+                        if (tabuleiro[linha][coluna] == '*') {
+                            cont++;
+                        }
+                    }
+                }
+
+            }
+
             // Jogo rodando
             System.out.println("Jogador " + player + " deve informar de 0 a 4...");
             System.out.print("a Linha: ");
@@ -80,9 +100,10 @@ public class oceano {
                 System.out.println(); // Um sout extra executado "vazio" para pular uma linha
             }
 
-            // Jogo encerrando
         }
         if (trava == false) { // Quando o jogo acaba ele retorna quem venceu
+            // Por enquanto nessa versão só existe a opção jogador vencer, pois disputa
+            // sozinho
             System.out.println("--- Vitória :) ---");
             System.out.println("--- Derrota :( ---");
 
