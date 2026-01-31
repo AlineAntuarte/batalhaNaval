@@ -44,7 +44,7 @@ public class oceano {
         System.out.println("Vamos começar!");
 
         exibirTabuleiro(tabuleiro);
-
+        criandoNavio(navio);
         boolean trava = true; // Futuramente algo deve retornar false para o jogo terminar
         while (trava) {
             // Jogo rodando
@@ -59,18 +59,25 @@ public class oceano {
              * mar ~~~~~~~~
              * navio #######
              * explosão nula XXXXXXX
-             * navio encontrado ******
+             * navio abatido ******
              */
 
             if (tabuleiro[linhaPlayer][colunaPlayer] == '~') {// Se tiver água
-                System.out.println();
+                System.out.println("O Comandante " + player + " acertou o mar!");
+                System.out.println(); // Um sout extra executado "vazio" para pular uma linha
             } else if (tabuleiro[linhaPlayer][colunaPlayer] == '#') {// Se tiver um navio
-                System.out.println();
+                System.out.println("Comandante " + player + ", acertamos o inimigo!");
+                System.out.println(); // Um sout extra executado "vazio" para pular uma linha
+
+                /*
+                 * Até aqui só novidade, agora teremos navios abatidos ou mar que já levou tiro
+                 */
             } else if (tabuleiro[linhaPlayer][colunaPlayer] == 'X') {// Se já recebeu um tiro
                 System.out.println();
-            } else {
-                // Achamos um navio novo
-                // EXPLODIR
+                System.out.println(); // Um sout extra executado "vazio" para pular uma linha
+            } else { // Se achar navio abatido
+                System.out.println("Já abatemos este navio Comandante!");
+                System.out.println(); // Um sout extra executado "vazio" para pular uma linha
             }
 
             // Jogo encerrando
@@ -80,8 +87,6 @@ public class oceano {
             System.out.println("--- Derrota :( ---");
 
         }
-
-        criandoNavio(navio);
 
         // ========================================================================
     }
@@ -118,25 +123,6 @@ public class oceano {
         tabuleiro[naviol1][navioc1] = '#';
         tabuleiro[naviol2][navioc2] = '#';
         tabuleiro[naviol3][navioc3] = '#';
-
-        /*
-         * for (int linha = 0; linha < 5; linha++) {
-         * for (int coluna = 0; coluna < 5; coluna++) {
-         * navio[linha][coluna] = '~';
-         * }
-         * }
-         * 
-         * for (int i = 0; i < 2; i++) {
-         * if (i == 0) {
-         * // Linha
-         * int linha = 0;
-         * 
-         * } else {
-         * // Coluna
-         * }
-         * }
-         */
-
     }
 
 }
