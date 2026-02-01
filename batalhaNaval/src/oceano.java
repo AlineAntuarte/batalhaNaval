@@ -12,11 +12,12 @@ public class oceano {
     // 1. Criei o tabuleiro fora do Main e dentro da classe, para pertencer a
     // "todos"
     static char[][] tabuleiro = new char[5][5];
+    static char[][] tabuleiroGrafico = new char[5][5];
     static String player = "Marinheiro(a)";
     static Scanner user = new Scanner(System.in);
     static int linhaPlayer = 0;
     static int colunaPlayer = 0;
-    //static int passarVez = 1;
+    // static int passarVez = 1;
 
     public static void main(String[] args) throws Exception {
 
@@ -36,15 +37,24 @@ public class oceano {
             }
         }
 
+        for (int linha = 0; linha < 5; linha++) {
+            for (int coluna = 0; coluna < 5; coluna++) {
+                tabuleiroGrafico[linha][coluna] = '~';
+            }
+        }
+
         // 3. Exibição do tabuleiro na tela
         System.out.println("--- Batalha Naval ---");
         System.out.println("Como quer ser chamado? ");
+        System.out.print("Seu nome: ");
         player = user.nextLine();
+        System.out.println(); // Um sout extra executado "vazio" para pular uma linha
 
         System.out.println("Olá Comandante " + player + "! É um prazer velejar com você.");
         System.out.println("Vamos começar!");
+        System.out.println(); // Um sout extra executado "vazio" para pular uma linha
 
-        exibirTabuleiro(tabuleiro);
+        exibirTabuleiro(tabuleiroGrafico); // Exibe tabuleiro GRÁFICO
         criandoNavio(navio);
         boolean trava = true; // Futuramente algo deve retornar false para o jogo terminar
         while (trava) {
@@ -55,13 +65,13 @@ public class oceano {
                            * O jogo só encerra quando o loop achar 3 navios abatidos de uma vez.
                            */
 
-            if (cont == 3) { // Condição de requisito para travar o jogo
-                trava = false;
-
-                for (int linha = 0; linha < 5; linha++) {
-                    for (int coluna = 0; coluna < 5; coluna++) {
-                        if (tabuleiro[linha][coluna] == '*') {
-                            cont++;
+            for (int linha = 0; linha < 5; linha++) {
+                for (int coluna = 0; coluna < 5; coluna++) {
+                    if (tabuleiroGrafico[linha][coluna] == '*') {
+                        cont++;
+                        if (cont == 3) { // Condição de requisito para travar o jogo
+                            trava = false;
+                            break;
                         }
                     }
                 }
@@ -69,6 +79,7 @@ public class oceano {
             }
 
             // Jogo rodando
+            System.out.println(); // Um sout extra executado "vazio" para pular uma linha
             System.out.println("Jogador " + player + " deve informar de 0 a 4...");
             System.out.print("a Linha: ");
             linhaPlayer = user.nextInt();
@@ -77,24 +88,25 @@ public class oceano {
 
             /*
              * --> legenda <--
-             * mar ~~~~~~~~
-             * navio #######
-             * explosão nula XXXXXXX
-             * navio abatido ******
+             * mar ~~~~~~~~ AMBOS
+             * navio ####### LÓGICO
+             * explosão nula XXXXXXX GRÁFICO
+             * navio abatido ****** GRÁFICO
              */
 
             if (tabuleiro[linhaPlayer][colunaPlayer] == '~') {// Se tiver água
-                tabuleiro[linhaPlayer][colunaPlayer] = 'X'; // Modifica para mostrar que já atirou la
+                tabuleiro[linhaPlayer][colunaPlayer] = 'X'; // Manter atualizado para lógica
+                tabuleiroGrafico[linhaPlayer][colunaPlayer] = 'X'; // Modifica para mostrar que já atirou la
                 System.out.println("O Comandante " + player + " acertou o mar!");
-                //passarVez++;
-                exibirTabuleiro(tabuleiro);
-                System.out.println(); // Um sout extra executado "vazio" para pular uma linha
+                // passarVez++;
+                exibirTabuleiro(tabuleiroGrafico);
 
             } else if (tabuleiro[linhaPlayer][colunaPlayer] == '#') {// Se tiver um navio
-                tabuleiro[linhaPlayer][colunaPlayer] = '*'; // Modifica para mostrar que já abateu la
+                tabuleiro[linhaPlayer][colunaPlayer] = '*'; // Manter atualizado para lógica
+                tabuleiroGrafico[linhaPlayer][colunaPlayer] = '*'; // Modifica para mostrar que já abateu la
                 System.out.println("Comandante " + player + ", acertamos o inimigo!");
-                exibirTabuleiro(tabuleiro);
                 System.out.println(); // Um sout extra executado "vazio" para pular uma linha
+                exibirTabuleiro(tabuleiroGrafico);
 
                 /*
                  * Até aqui só novidade, agora teremos navios abatidos ou mar que já levou tiro
@@ -102,12 +114,10 @@ public class oceano {
 
             } else if (tabuleiro[linhaPlayer][colunaPlayer] == 'X') {// Se já recebeu um tiro em água
                 System.out.println("Nestas coordenadas não há navios inimigos Comandante!");
-                exibirTabuleiro(tabuleiro);
-                System.out.println(); // Um sout extra executado "vazio" para pular uma linha
+                exibirTabuleiro(tabuleiroGrafico);
             } else { // Se achar navio abatido
                 System.out.println("Já abatemos este navio Comandante!");
-                exibirTabuleiro(tabuleiro);
-                System.out.println(); // Um sout extra executado "vazio" para pular uma linha
+                exibirTabuleiro(tabuleiroGrafico);
             }
 
         }
@@ -115,14 +125,12 @@ public class oceano {
             // Por enquanto nessa versão só existe a opção jogador vencer, pois disputa
             // sozinho
             System.out.println("--- Vitória :) ---");
-            System.out.println("--- Derrota :( ---");
-
         }
 
         // ========================================================================
     }
 
-    public static void exibirTabuleiro(char[][] mapa) {
+    public static void exibirTabuleiro(char[][] mapa) {// 'mapa' apelido temporário para que a função seja 'universal'
         // Aqui é onde foi "contruído" a ordem de exibir o tabuleiro
         for (int linha = 0; linha < 5; linha++) {
             for (int coluna = 0; coluna < 5; coluna++) {
@@ -149,7 +157,7 @@ public class oceano {
         naviol3 = gerador.nextInt(5);
         navioc3 = gerador.nextInt(5);
 
-        // Mapa Recebendo os Navios
+        // Tabuleiro Recebendo os Navios
 
         tabuleiro[naviol1][navioc1] = '#';
         tabuleiro[naviol2][navioc2] = '#';
