@@ -109,6 +109,7 @@ public class oceano {
                     if (tabuleiroGrafico[linha][coluna] == '*') {
                         cont++;
                         if (cont == 3) { // Condição de requisito para travar o jogo
+                            System.out.println();
                             System.out.println(".");
                             System.out.println(".");
                             System.out.println(".");
