@@ -17,7 +17,7 @@ public class oceano {
     static Scanner user = new Scanner(System.in);
     static int linhaPlayer = 0;
     static int colunaPlayer = 0;
-    // static int passarVez = 1;
+    static boolean travaNavio = true;
 
     public static void main(String[] args) throws Exception {
 
@@ -142,25 +142,32 @@ public class oceano {
     public static void criandoNavio(char[][] navio) {
         Random gerador = new Random();
 
-        int naviol1 = 0;
-        int navioc1 = 0;
-        int naviol2 = 0;
-        int navioc2 = 0;
-        int naviol3 = 0;
-        int navioc3 = 0;
+        int naviol1 = gerador.nextInt(5);
+        int navioc1 = gerador.nextInt(5);
 
-        naviol1 = gerador.nextInt(5);
-        navioc1 = gerador.nextInt(5);
-        naviol2 = gerador.nextInt(5);
-        navioc2 = gerador.nextInt(5);
-        naviol3 = gerador.nextInt(5);
-        navioc3 = gerador.nextInt(5);
+        int naviol2 = gerador.nextInt(5);
+        int navioc2 = gerador.nextInt(5);
+
+        int naviol3 = gerador.nextInt(5);
+        int navioc3 = gerador.nextInt(5);
 
         // Tabuleiro Recebendo os Navios
 
         tabuleiro[naviol1][navioc1] = '#';
         tabuleiro[naviol2][navioc2] = '#';
         tabuleiro[naviol3][navioc3] = '#';
+
+        navioAleatorio: while (travaNavio) {
+            if ((naviol2 == naviol1 && navioc2 == navioc1) || (naviol2 == naviol3 && navioc2 == navioc3)) {
+                naviol2 = gerador.nextInt(5);
+                navioc2 = gerador.nextInt(5);
+            } else if ((naviol3 == naviol1 && navioc3 == navioc1) || (naviol3 == naviol2 && navioc3 == navioc2)) {
+                naviol3 = gerador.nextInt(5);
+                navioc3 = gerador.nextInt(5);
+            } else {
+                break navioAleatorio;
+            }
+        }
     }
 
 }
