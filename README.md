@@ -24,27 +24,33 @@ O jogo desafia o jogador a encontrar 3 navios inimigos escondidos em um oceano (
 
 ## 🎮 Como Executar
 
-1. **Clone o repositório:**
+1. **Abra o terminal (PowerShell ou CMD) e vá para a raiz do disco:**
 
-    ```bash
-    git clone https://github.com/AlineAntuarte/batalhaNaval.git
+    ```powershell
+    cd \
     ```
 
-1. **Entre na pasta do projeto:**
+1. **Clone o repositório diretamente no C::**
 
     ```bash
-    cd batalhaNaval
+    git clone [https://github.com/AlineAntuarte/batalhaNaval.git](https://github.com/AlineAntuarte/batalhaNaval.git)
+    ```
+
+1. **Navegue até a pasta onde o código-fonte reside:**
+
+    ```powershell
+    cd batalhaNaval/batalhaNaval/src
     ```
 
 1. **Compile o código:**
 
-    ```bash
+    ```powershell
     javac oceano.java
     ```
 
 1. **Execute o jogo:**
 
-    ```bash
+    ```powershell
     java oceano
     ```
 
