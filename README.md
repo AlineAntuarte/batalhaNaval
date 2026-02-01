@@ -1,21 +1,25 @@
+
 # ⚓ Batalha Naval em Java
 
-Este é um projeto de console que implementa o clássico jogo de **Batalha Naval**, desenvolvido como parte dos meus estudos no curso de **Análise e Desenvolvimento de Sistemas (IFSC)**. O objetivo principal foi aplicar conceitos de lógica de programação, manipulação de matrizes e Programação Orientada a Objetos (POO).
+Este projeto implementa o clássico jogo de **Batalha Naval** via console. Ele foi desenvolvido como um exercício prático para o curso de **Análise e Desenvolvimento de Sistemas (IFSC)**, focando em lógica de programação e manipulação de estruturas de dados.
 
 ## 🚀 Sobre o Projeto
 
-O jogo consiste em um tabuleiro onde o computador posiciona navios secretamente, e o jogador deve tentar adivinhá-los informando as coordenadas de linha e coluna.
+O jogo desafia o jogador a encontrar 3 navios inimigos escondidos em um oceano (matriz 5x5). O sistema utiliza uma lógica de **dois tabuleiros**:
 
-### Principais aprendizados
+1. **Tabuleiro Lógico:** Onde os navios são posicionados aleatoriamente e a lógica de acerto é processada.
+2. **Tabuleiro Gráfico:** O que é exibido para o jogador (comandante), ocultando a posição dos navios até que sejam atingidos.
 
-* **Matrizes (Arrays Bidimensionais):** Gerenciamento do tabuleiro 10x10.
-* **Lógica de Controle:** Implementação de turnos, validação de jogadas e condições de vitória.
-* **Interação via Console:** Uso da classe `Scanner` para entrada de dados.
-* **Git:** Versionamento de código e boas práticas de commits.
+### 🧠 Principais Aprendizados e Desafios
+
+* **Matrizes (Arrays Bidimensionais):** Manipulação de grades para representar o campo de batalha.
+* **Algoritmo de Posicionamento:** Implementação de um loop de validação para garantir que os navios nunca sejam sorteados na mesma coordenada.
+* **Controle de Fluxo Avançado:** Uso de **Labeled Breaks** (`break jogo;`) para encerrar loops aninhados no momento exato da vitória.
+* **Modularização:** Criação de métodos universais (como o `exibirTabuleiro`) que aceitam diferentes matrizes como parâmetros.
 
 ## 🛠️ Tecnologias Utilizadas
 
-* **Java** (JDK 17 ou superior)
+* **Java 17** (ou superior)
 * **Git & GitHub**
 
 ## 🎮 Como Executar
@@ -23,39 +27,44 @@ O jogo consiste em um tabuleiro onde o computador posiciona navios secretamente,
 1. **Clone o repositório:**
 
     ```bash
-    git clone [https://github.com/AlineAntuarte/batalhaNaval.git](https://github.com/AlineAntuarte/batalhaNaval.git)
+    git clone https://github.com/AlineAntuarte/batalhaNaval.git
     ```
 
-2. **Entre na pasta do projeto:**
+1. **Entre na pasta do projeto:**
 
     ```bash
-    cd batalha-naval-java
+    cd batalhaNaval
     ```
 
-3. **Compile o código:**
+1. **Compile o código:**
 
     ```bash
-    javac BatalhaNaval.java
+    javac oceano.java
     ```
 
-4. **Execute o jogo:**
+1. **Execute o jogo:**
 
     ```bash
-    java BatalhaNaval
+    java oceano
     ```
 
 ## 📋 Funcionalidades (Roadmap)
 
--[x] Criação do tabuleiro 10x10.
--[x] Sistema de tiros por coordenadas.
--[ ] Posicionamento aleatório dos navios.
--[ ] Interface colorida no console (ANSI colors).
--[ ] Sistema de pontuação e ranking.
+* [x] Criação de tabuleiro dinâmico.
+* [x] Sistema de tiros por coordenadas via `Scanner`.
+* [x] Posicionamento aleatório de navios com validação de sobreposição.
+* [x] Lógica de vitória com contador de abates.
+* [ ] Implementação de interface colorida (ANSI colors).
+* [ ] Opção para diferentes níveis de dificuldade (tamanhos de mapa).
 
 ## 📝 Licença
 
-Este projeto está sob a licença **MIT** - consulte o arquivo [LICENSE](LICENSE) para detalhes.
+Este projeto está sob a licença **MIT** - consulte o arquivo [LICENSE](https://www.google.com/search?q=LICENSE) para detalhes.
 
 ---
+
 Desenvolvido por **Aline Barbosa Antuarte** 👋
-[Meu LinkedIn](https://www.linkedin.com/in/aline-barbosa-antuarte-3078b2245?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B9fsphYVRTBaImLSfGBozLg%3D%3D) | <aline.ba@aluno.ifsc.edu.br>
+
+[LinkedIn](https://www.google.com/search?q=https://www.linkedin.com/in/aline-barbosa-antuarte-3078b2245) | [aline.ba@aluno.ifsc.edu.br](mailto:aline.ba@aluno.ifsc.edu.br)
+
+---
