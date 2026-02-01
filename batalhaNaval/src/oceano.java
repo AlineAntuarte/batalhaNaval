@@ -109,6 +109,10 @@ public class oceano {
                     if (tabuleiroGrafico[linha][coluna] == '*') {
                         cont++;
                         if (cont == 3) { // Condição de requisito para travar o jogo
+                            System.out.println(".");
+                            System.out.println(".");
+                            System.out.println(".");
+                            System.out.println("--- Vitória :) ---");
                             break jogo;
                         }
                     }
@@ -116,11 +120,6 @@ public class oceano {
 
             }
 
-        }
-        if (trava == false) { // Quando o jogo acaba ele retorna quem venceu
-            // Por enquanto nessa versão só existe a opção jogador vencer, pois disputa
-            // sozinho
-            System.out.println("--- Vitória :) ---");
         }
 
         // ========================================================================
