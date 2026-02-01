@@ -21,10 +21,7 @@ public class oceano {
 
     public static void main(String[] args) throws Exception {
 
-        // 1.1 Criei um compartimento para os navios
-        char[][] navio = new char[1][1];
-
-        // 2. Vou cobrir ele de "água" onde os navios ficam (~)
+        // 1. Vou cobrir ele de "água" onde os navios ficam (~)
 
         /*
          * O loop entra primeiramente na linha, mas sua linha seguinte tem outro loop,
@@ -43,7 +40,7 @@ public class oceano {
             }
         }
 
-        // 3. Exibição do tabuleiro na tela
+        // 2. Exibição do tabuleiro na tela
         System.out.println("--- Batalha Naval ---");
         System.out.println("Como quer ser chamado? ");
         System.out.print("Seu nome: ");
@@ -55,7 +52,7 @@ public class oceano {
         System.out.println(); // Um sout extra executado "vazio" para pular uma linha
 
         exibirTabuleiro(tabuleiroGrafico); // Exibe tabuleiro GRÁFICO
-        criandoNavio(navio);
+        criandoNavio();
         boolean trava = true; // Futuramente algo deve retornar false para o jogo terminar
         jogo: while (trava) {
 
@@ -139,7 +136,7 @@ public class oceano {
         }
     }
 
-    public static void criandoNavio(char[][] navio) {
+    public static void criandoNavio() {
         Random gerador = new Random();
 
         int naviol1 = gerador.nextInt(5);
@@ -153,10 +150,6 @@ public class oceano {
 
         // Tabuleiro Recebendo os Navios
 
-        tabuleiro[naviol1][navioc1] = '#';
-        tabuleiro[naviol2][navioc2] = '#';
-        tabuleiro[naviol3][navioc3] = '#';
-
         navioAleatorio: while (travaNavio) {
             if ((naviol2 == naviol1 && navioc2 == navioc1) || (naviol2 == naviol3 && navioc2 == navioc3)) {
                 naviol2 = gerador.nextInt(5);
@@ -168,6 +161,9 @@ public class oceano {
                 break navioAleatorio;
             }
         }
+        tabuleiro[naviol1][navioc1] = '#';
+        tabuleiro[naviol2][navioc2] = '#';
+        tabuleiro[naviol3][navioc3] = '#';
     }
 
 }
