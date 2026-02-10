@@ -59,6 +59,7 @@ public class oceano {
         exibirTabuleiro(tabuleiroGrafico); // Exibe tabuleiro GRÁFICO
         criandoNavio();
         boolean trava = true; // Futuramente algo deve retornar false para o jogo terminar
+        long tempoInicio = System.currentTimeMillis();
         jogo: while (trava) {
 
             // Jogo rodando
@@ -114,8 +115,19 @@ public class oceano {
                     if (tabuleiroGrafico[linha][coluna] == '*') {
                         cont++;
                         if (cont == 3) { // Condição de requisito para travar o jogo
+                            long tempoFinal = System.currentTimeMillis();
+                            long tempo = ((tempoFinal - tempoInicio) / 60); // Neste loop vamos ter o modo solo, nem
+                                                                            // contra player 2 nem contra o PC, apenas
+                                                                            // contra o tempo.
+
+                            /*
+                             * Por enquanto calcula segundos de forma crua, mas em breve vou personalizar
+                             * para que informe horas, minutos e segundos, é extremamente improvável, mas
+                             * até dias.
+                             */
                             System.out.println();
                             System.out.println("--- Vitória :) ---");
+                            System.out.println("Você limpou o oceano em " + tempo + " segundos!");
                             break jogo;
                         }
                     }
