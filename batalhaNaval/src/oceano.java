@@ -45,8 +45,9 @@ public class oceano {
         System.out.println("Como quer ser chamado? ");
         System.out.print("Seu nome: ");
         player = user.nextLine();
-        if (player == "") {
-            player = "Marinheiro(a)";
+        if (player == "" || player == " ") {
+            player = "Marinheiro(a)"; // Caso o usuário não queira informar o nome e pule a etapa ou deixe em branco,
+                                      // ele ainda terá um "apelido" para jogar como perfil
         }
 
         System.out.println(); // Um sout extra executado "vazio" para pular uma linha
