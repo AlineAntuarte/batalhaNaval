@@ -45,6 +45,10 @@ public class oceano {
         System.out.println("Como quer ser chamado? ");
         System.out.print("Seu nome: ");
         player = user.nextLine();
+        if (player == "") {
+            player = "Marinheiro(a)";
+        }
+
         System.out.println(); // Um sout extra executado "vazio" para pular uma linha
 
         System.out.println("Olá Comandante " + player + "! É um prazer velejar com você.");
